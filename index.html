@@ -12,29 +12,35 @@
 <!-- Hero Section -->
     <section class="hero is-medium">
         <div class="hero-body">
+          <div class="container has-centered-text">
             <h1 class="title is-1 has-text-white">
                 Mix Master
             </h1>
             <h2 class="subtitle is-3 has-text-white">
                 Catchy Tagline about making drinks at home
             </h2>
+          </div>
         </div>
+      
     </section>
 
 <!-- Intro and Directions -->
-<h2>
-    Welcome to Mix Master! 
+<section class="directions">
+  <div class="section">
+<h1 class="title is-2 has-text-centered">
     Let's get started on your new favorite drink.
-</h2>
+</h1>
 
-<p>
+<div class="content is-large has-text-centered">
+  <p>
     Choose the type of liquor you would like in your drink. 
     Mix Master find the perfect drink recipe for you to try.
-    If that's not quite your jam, click the liquor button again to try something different.
-    If you find your new favorite drink, click "add to favorites" to save the recipe.
-</p>
-
+  </p>
+  
+</div>
+</section>
 <!-- Liquor Buttons -->
+<section class="container">
 <form class="control" id="liquorBtnEl">
     <div class="field is-grouped is-grouped-multiline is-grouped-centered">
     <!-- Vodka -->    
@@ -69,6 +75,24 @@
           </p>
         </div>
 </form>
+</section>
+<!-- stored favorites -->
+
+<!-- drink image and recipe -->
+<section class="drink-results">
+  <div class="section">
+    <h1 class="title is-2 has-text-centered">
+      Here is your Mix Master Drink!
+  </h1>
+
+<p>
+  If you just found your new favorite mix drink, click "add to favorites" to save the recipe.
+  If that's not quite your jam, click the liquor button again to try something different.
+</p>
+</div>
+</section>
+<!-- favorites button -->
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="assets/js/script.js"></script>
