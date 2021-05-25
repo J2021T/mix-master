@@ -4,23 +4,114 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>mix-master</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+    <title>Mix Master🍹</title>
 </head>
 <body>
-    <form id="liqourBtnEl">
-        <button type="submit" id="vodkaBtn">Vodka</button>
-        <button type="submit" id="ginBtn">Gin</button>
-        <button type="submit" id="tequilaBtn">Tequila</button>
-    </form>
-    <div id="image"></div>
-    <form id="drinkName"></form>
-    <div id="ingredients">Ingredients List</div>
-    <div id="recipe">Recipe</div>
-    <form id="storeLoc">If you are missing any of the ingredients click a button below to find the store aisle and average cost for that item.</form>
-    <form id="savedCocktails">Favorite Cocktails</form>
-    
+<!-- Hero Section -->
+    <section class="hero is-medium">
+        <div class="hero-body">
+          <div class="container has-centered-text">
+            <h1 class="title is-1 has-text-white">
+                Mix Master
+            </h1>
+            <h2 class="subtitle is-3 has-text-white">
+                Catchy Tagline about making drinks at home
+            </h2>
+          </div>
+        </div>
+      
+    </section>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="assets/js/script.js"></script>
+<!-- Intro and Directions -->
+<section class="section directions">
+  <div class="column is-centered">
+<h1 class="title is-2 has-text-centered">
+    Let's get started on your new favorite drink.
+</h1>
+
+<div class="content is-large has-text-centered">
+  <p>
+    Choose the type of liquor you would like in your drink. 
+    Mix Master will find the perfect drink recipe for you to try.
+  </p>
+  
+</div>
+</section>
+<!-- Liquor Buttons -->
+<section class="container">
+<form class="control" id="liquorBtnEl">
+    <div class="field is-grouped is-grouped-multiline is-grouped-centered">
+    <!-- Vodka -->    
+        <p class="control">
+            <a class="button is-large">
+              Vodka
+            </a>
+          </p>
+    <!-- Rum --> 
+          <p class="control">
+            <a class="button is-large">
+              Rum
+            </a>
+          </p>
+    <!-- Tequila --> 
+          <p class="control">
+            <a class="button is-large">
+              Tequila
+            </a>
+          </p>
+    <!-- Bourbon -->   
+          <p class="control">
+            <a class="button is-large">
+              Bourbon
+            </a>
+          </p>
+    <!-- Random --> 
+          <p class="control">
+            <a class="button is-large">
+              Random
+            </a>
+          </p>
+        </div>
+</form>
+</section>
+
+
+<!-- drink favorites image and recipe -->
+<section class="section drink-results">
+  <div class="content">
+    <h1 class="title is-2 has-text-centered">
+      Here is your Mix Master Drink!
+  </h1>
+
+<p class="content is-large">
+  If you just found your new favorite mix drink, click "add to favorites" to save the recipe.
+  If that's not quite your jam or you want to choose a back up, click the liquor button again to try something different.
+</p>
+</div>
+<div class="columns is-centered">
+  <div class="container column is-one-quarter">FAVORITES</div>
+  <div class="box column is-half"> *DRINK TITLE & IMAGE*
+  <div class="container column is-narrow">
+    <table class="table  is-striped is-hovered">
+      <thead>*DRINK RECIPE*</thead>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+
+    </table></div>
+
+</div>
+</div>
+</section>
+<!-- favorites button -->
+<form class="button" id="favoriteBtn">SAVE TO FAVORITES</form>
+
+
+   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="assets/js/script.js"></script> -->
 </body>
 </html>

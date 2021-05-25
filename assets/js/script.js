@@ -10,6 +10,7 @@ var idsArr = [];
 var getCocktailsFromStorage = function() {
     drinksArr = [];
     idsArr = [];
+    document.querySelector('#savedCocktails').innerHTML = '';
     
     var savedCocktailNames = JSON.parse(localStorage.getItem('names'));
     var savedCocktailIDs = JSON.parse(localStorage.getItem('ids'));
@@ -119,6 +120,7 @@ var getCocktail = function(liqourName) {
         response.json().then(function(data) {
             var ranDrink = Math.floor(Math.random() * data.drinks.length);
             var drinkImgURL = data.drinks[ranDrink].strDrinkThumb;
+            console.log(drinkImgURL);
             var drinkImage = document.querySelector('#image');
             var drinkNameEl = document.querySelector('#drinkName');
             var saveBtnEl = document.createElement('button');
@@ -133,7 +135,7 @@ var getCocktail = function(liqourName) {
             
             saveBtnEl.innerHTML = data.drinks[ranDrink].strDrink;
 
-            drinkImage.innerHTML = '<img id="' + drinkID + '" src="' + drinkImgURL + '"/>';
+            drinkImage.innerHTML = '<img id="' + drinkID + '" src="' + drinkImgURL + '/preview"/>';
             
             getRecipe(drinkID);
         });      
@@ -152,7 +154,7 @@ var getSavedCocktailInfo = function(drinkID) {
             
             drinkNameEl.textContent = data.drinks[0].strDrink;
 
-            drinkImage.innerHTML = '<img src=' + drinkImgURL + '>';
+            drinkImage.innerHTML = '<img src="' + drinkImgURL + '/preview">';
             
             getRecipe(drinkID);
         });      
