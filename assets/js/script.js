@@ -11,7 +11,8 @@ var getCocktailsFromStorage = function() {
     drinksArr = [];
     idsArr = [];
     document.querySelector('#savedCocktails').innerHTML = '';
-    
+    document.querySelector('#savedCocktails').textContent = 'FAVORITES';
+
     var savedCocktailNames = JSON.parse(localStorage.getItem('names'));
     var savedCocktailIDs = JSON.parse(localStorage.getItem('ids'));
 
@@ -33,10 +34,14 @@ var getCocktailsFromStorage = function() {
         console.log(drinkID);
         console.log(drinkName);
         var savedForm = document.querySelector('#savedCocktails');
+        var buttonDiv = document.createElement('div')
         var drinkButton = document.createElement('button');
+        buttonDiv.setAttribute('class', 'is-full');
         drinkButton.setAttribute('id', drinkID);
+        drinkButton.setAttribute('class', 'columns is-full button is-small');
         drinkButton.textContent = drinkName;
-        savedForm.appendChild(drinkButton);
+        buttonDiv.appendChild(drinkButton);
+        savedForm.appendChild(buttonDiv);
     });
 };
 
