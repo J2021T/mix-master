@@ -42,39 +42,41 @@
 <!-- Liquor Buttons -->
 <section class="container">
 <form class="control" id="liquorBtnEl">
-    <div class="field is-grouped is-grouped-multiline is-grouped-centered">
-    <!-- Vodka -->    
+   <!-- <div class="field is-grouped is-grouped-multiline is-grouped-centered">-->
+    <!-- Vodka --> 
+    <div class="buttons">  
         <p class="control">
-            <a class="button is-large">
+            <button type="submit" class="button is-large">
               Vodka
-            </a>
+            </button>
           </p>
     <!-- Rum --> 
           <p class="control">
-            <a class="button is-large">
+            <button type="submit" class="button is-large">
               Rum
-            </a>
+            </button>
           </p>
     <!-- Tequila --> 
           <p class="control">
-            <a class="button is-large">
+            <button type="submit" class="button is-large">
               Tequila
-            </a>
+            </button>
           </p>
     <!-- Bourbon -->   
           <p class="control">
-            <a class="button is-large">
+            <button type="submit" class="button is-large">
               Bourbon
-            </a>
+            </button>
           </p>
     <!-- Random --> 
           <p class="control">
-            <a class="button is-large">
+            <button type="submit" class="button is-large">
               Random
-            </a>
+            </button>
           </p>
         </div>
 </form>
+</div> 
 </section>
 
 
@@ -90,25 +92,32 @@
   If that's not quite your jam or you want to choose a back up, click the liquor button again to try something different.
 </p>
 </div>
+
 <div class="columns is-centered">
-  <div class="container column is-one-quarter">FAVORITES</div>
-  <div class="box column is-half"> *DRINK TITLE & IMAGE*
+  <!-- favorites list -->
   <div class="container column is-narrow">
     <table class="table  is-striped is-hovered">
-      <thead>*DRINK RECIPE*</thead>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-
+      <thead>Favorites</thead>
+      <tr><td>saved drink 1</td></tr>
+      <tr><td>saved drink 2</td></tr>
+      <tr><td>saved drink 3</td></tr>
+      <tr><button class="button"></button></tr>
+      <td>saved drink 5</td>
     </table></div>
+
+  <div class="box column is-half"> 
+    <!-- favorites button -->
+    <button class="button is-large" id="favoriteBtn">**cocktail name**</button>
+    <!-- Drink Image-->
+<div class="image is-350x350" id="image">drink image here</div>
+
+
+    
 
 </div>
 </div>
 </section>
-<!-- favorites button -->
-<form class="button" id="favoriteBtn">SAVE TO FAVORITES</form>
+
 
 
    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
