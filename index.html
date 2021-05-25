@@ -13,7 +13,7 @@
     <section class="hero is-medium">
         <div class="hero-body">
           <div class="container has-centered-text">
-            <h1 class="title is-1 has-text-white">
+            <h1 class="text is-default">
                 Mix Master
             </h1>
             <h2 class="subtitle is-3 has-text-white">
@@ -26,13 +26,13 @@
 <!-- Intro and Directions -->
 <section class="section directions">
   <div class="column is-centered">
-    <h1 class="title is-2 has-text-centered">
+    <h1 class="title is-2 has-text-centered has-text-white">
         Let's get started on your new favorite drink.
     </h1>
   </div>
 
-  <div class="content is-large has-text-centered">
-    <p>
+  <div class="content is-large has-text-centered has-text-white">
+    <p class="has-text-white">
       Choose the type of liquor you would like in your drink. 
       Mix Master will find the perfect drink recipe for you to try.
     </p>
@@ -40,13 +40,13 @@
 </section>
 
 <!-- Liquor Buttons -->
-<section class="section">
+<section class="section liquor-buttons">
   <div class="buttons field is-grouped is-grouped-multiline is-grouped-centered">
     <form id="liqourBtnEl">
       <!-- Vodka Button -->
       <button class="button is-large" type="submit" id="vodkaBtn">Vodka</button>
-      <!-- Gin Button -->
-      <button class="button is-large" type="submit" id="ginBtn">Gin</button>
+      <!-- Rum Button -->
+      <button class="button is-large" type="submit" id="rumBtn">Rum</button>
       <!-- Tequila Button -->
       <button class="button is-large" type="submit" id="tequilaBtn">Tequila</button>
       <!-- Bourbon Button -->
@@ -60,44 +60,45 @@
 
 <!-- drink favorites image and recipe -->
 <section class="section drink-results">
-  <div class="content">
-    <h1 class="title is-2 has-text-centered">
+  <!-- results directions-->
+  <div class="directions content">
+    <h1 class="title is-2 has-text-centered has-text-white">
       Here is your Mix Master Drink!
-  </h1>
-  <p class="content is-large">
-    If you just found your new favorite mix drink, click "add to favorites" to save the recipe.
-    If that's not quite your jam or you want to choose a back up, click the liquor button again to try something different.
-  </p>
-</div>
-<!-- Favorites, Drink Image, and Recipe -->
+    </h1>
+    <p class="content is-large has-text-white">
+      If you just found your new favorite mix drink, click "add to favorites" to save the recipe.
+      If that's not quite your jam or you want to choose a back up, click the liquor button again to try something different.
+    </p>
+  </div>  
+  <!-- results container -->
+  <div class="section columns is-multiline field is-grouped">
 
-<div class="section columns is-multiline field is-grouped">
-  <!-- favorites list -->
-    
+    <!-- favorites list -->
     <div class="container control column is-one-fifth is-pulled-left is-narrow">
       <div class="field is-grouped-multiline">
-      <div class="control column is-multiline buttons block is-grouped-centered"><form id="savedCocktails">Favorite Cocktails</form></div>
+        <div class="control column is-multiline buttons block is-grouped-centered"><form id="savedCocktails">Favorite Cocktails</form></div>
       </div>
-      </div>
+    </div>
 
   <!-- Drink Info Box -->      
   <div class="container box column is-two-thirds has-text-centered is-grouped-centered control"> 
-    <!-- favorites button -->
+    <!-- Drink Name / Save to favorites -->
     <form id="drinkName"></form>
-    <!-- Drink Image-->
-<figure class="column is-half is-offset-one-quarter image" id="image"></figure>
-
-<div class="column">
-  <div class="content is-medium has-text-centered"> Ingredients</div>
-  <div class="block" id="ingredients"></div>
-</div>
-
-<div class="column">
-  <div class="content is-medium block has-text-centered"> Recipe</div>
-  <div id="recipe"></div>
-  <Div>If you are missing any of the ingredients click a button below to find the store aisle and average cost for that item.</Div>
-  <form id="storeLoc"></form>
-</div>
+    <!-- Drink Image -->
+    <figure class="column is-half is-offset-one-quarter image" id="image"></figure>
+    <!-- Indreient list -->
+    <div class="column">
+      <div class="content is-medium has-text-centered"> Ingredients</div>
+      <div class="block" id="ingredients"></div>
+    </div>
+    <!-- cocktail recipe -->
+    <div class="column">
+      <div class="content is-medium block has-text-centered"> Recipe</div>
+      <div id="recipe"></div>
+    <!-- Grocery store info-->
+    <Div>If you are missing any of the ingredients click a button below to find the store aisle and average cost for that item.</Div>
+      <form id="storeLoc"></form>
+  </div>
 
 
 
