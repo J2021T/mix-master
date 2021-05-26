@@ -7,7 +7,7 @@
 
 
 .hero {
-    background-image: url("/assets/images/hero-background.jpg");
+    background-image: url("../images/hero-background.jpeg");
     background-size: contain;
     background-position: top;
     background-attachment: fixed;
@@ -19,12 +19,38 @@
     text-align: center;
 }
 
-
-/*.directions {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    width: 80%;
+.hero h1 {
+    font-size: 100px;
+    font-family:'Courier New', Courier, monospace;
+    /*font-weight: bold;*/
+    color: white;
 }
-style.css
+
+body {
+    background-image: url("../images/wood-background.jpg");
+    background-attachment: scroll;
+}
+#drinkName button {
+background-color: #132a85;
+color: white;
+font-size: 48px;
+border-radius: 8px;
+padding: 0 5px;
+box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+min-width: 50%;
+margin: 10px auto;
+
+}
+
+#savedCocktails button {
+    display: block;
+    width: 100%;
+    margin: 3px;
+}
+
+.liquor-buttons button {
+    background-color: #132a85;
+    color: white;
+    border-radius: 8px;
+    border-color: black;
+}
