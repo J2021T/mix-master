@@ -110,7 +110,9 @@ var ingredientFormHandler = function(event) {
             var ingredient = 'tabasco';
         } else if (ingredient === 'dryvermouth') {
             var ingredient = 'vermouth';
-        } 
+        } else if (ingredient === 'orangejuice') {
+            var ingredient = 'orange+juice'
+        }
         getIngredients(ingredient);     
 };
 
