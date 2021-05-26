@@ -21,25 +21,27 @@
     <title>Mix Master🍹</title>
 </head>
 <body>
+  <!--Modals-->
   <!-- Popup modal -->
- <!-- <div class="modal is-active" id="ageModal">
+ <div class="modal" id="ageModal">
   <div class="modal-background"></div>
   <div class="modal-card">
     <header class="modal-card-head">
-      <p class="modal-card-title">Welcome to Mix Master🍹</p>
+      <p class="modal-card-title has-text-centered">Welcome to Mix Master🍹</p>
       <button class="delete" aria-label="close"></button>
     </header>
     <section class="modal-card-body">
-      <p>Are you 21 or Over?</p>
+      <p class="modal-card-title has-text-centered">Are you 21 or Over?</p>
     </section>
     <footer class="modal-card-foot buttons is-centered">
       <button class="button is-success" id="yes">YES</button>
-      <button class="button" id="no">NO</button>
+      <button class="button is-danger" id="no">NO</button>
       </div>
     </footer>
   </div>
-</div>  -->
-<!--<div class="modal1 is-active" id="noModal">
+</div> 
+<!--Modal if not 21-->
+<div class="modal" id="noModal">
   <div class="modal-background"></div>
   <div class="modal-card">
     <header class="modal-card-head">
@@ -47,12 +49,12 @@
       <button class="delete" aria-label="close"></button>
     </header>
     <section class="modal-card-body">
-      <p>You have to be 21+ to access the site. We'll see you when you're 21!</p>
+      <p class="modal-card-title has-text-centered">You have to be 21+ to access the site. We'll see you when you're 21!</p>
     </section>
   </div>
 </div> -->
 <!-- modal with ingredients&cost -->
-<!-- <div class="modal2 is-active">
+<div class="modal" id="ingFind">
   <div class="modal-background"></div>
   <div class="modal-card">
     <header class="modal-card-head">
@@ -67,20 +69,23 @@
       <button class="button is-success">OK</button>
     </footer>
   </div>
-</div> -->
-<!-- <div class="modal3 is-active">
+</div>
+<div class="modal" id="noIngFind">
   <div class="modal-background"></div>
   <div class="modal-card">
     <header class="modal-card-head">
-      <p class="modal-card-title has-text-centered">Sorry, couldn’t find Info for your ingredient</p>
+      <p class="modal-card-title has-text-centered">Cannot find the ingredient</p>
       <button class="delete" aria-label="close"></button>
     </header>
-    
+    <section class="modal-card-body">
+      <p id="noIng" class="modal-card-title has-text-centered"></p>
+      
+    </section>
     <footer class="modal-card-foot buttons is-centered">
-      <button class="button is-success">OK</button>
+      <button class="button is-success" id="ok">OK</button>
     </footer>
   </div>
-</div> -->
+</div>
 <!-- Hero Section -->
     <section class="hero is-medium">
         <div class="hero-body">
@@ -89,7 +94,7 @@
                 Mix Master
             </h1>
             <h2 class="subtitle is-3 has-text-white">
-                Catchy Tagline about making drinks at home
+                Netflix for Cocktails
             </h2>
           </div>
         </div>

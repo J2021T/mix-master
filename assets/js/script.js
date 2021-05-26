@@ -7,7 +7,7 @@ var drinksArr = [];
 var idsArr = [];
 
 $(document).ready(function() {
-    $('.modal').addClass('is-active');
+    $('#ageModal').addClass('is-active');
 })
 
 // modal handling
@@ -16,14 +16,21 @@ $('#yes').click(function() {
     $('.modal').removeClass('is-active');
 });
 
-// yes button event listener
+// ok button on ingredient is clicked
+$('#ok').click(function() {
+    $('#ingFind').removeClass('is-active');
+});
+
+//ok button on no ingredient is clicked
+$('#ok').click(function() {
+    $('#noIngFind').removeClass('is-active');
+});
 
 // function to perform if no clicked
-var ageNoModalHandler = function() {
-    event.preventDefault();
-
-    displayNoModal();
-};
+$('#no').click(function() {
+    console.log('clicked');
+    $('#noModal').addClass('is-active');
+})
 
 // get saved cocktails from storage
 var getCocktailsFromStorage = function() {
@@ -209,10 +216,11 @@ var getRecipe = function(drinkID) {
             var recipeList = function(ingredient, measure) {
                 var ingredientListEl = document.querySelector('#ingredients');
                 var ingredientStoreEl = document.querySelector('#storeLoc');
-                ingredientStoreEl.innerHTML = 'If you are missing any of the ingredients click a button below to find the store aisle and average cost for that item.';
+                // ingredientStoreEl.innerHTML = 'If you are missing any of the ingredients click a button below to find the store aisle and average cost for that item.';
                 var measureEl = document.createElement('span');
                 var ingredientEl = document.createElement('h3');
                 var storeIngredient = document.createElement('button');
+                storeIngredient.setAttribute('class', 'ingredient-button');
                 storeIngredient.setAttribute('id', ingredient);
 
                 measureEl.textContent = ' -- ' + measure;
@@ -238,7 +246,8 @@ var getRecipe = function(drinkID) {
 var getIngredients = function(ingredient) {
     fetch('https://api.spoonacular.com/food/ingredients/search?query=' + ingredient + '&number=1&apiKey=' + apiKey2 + '').then(function(response) {
         response.json().then(function(data) {
-            if (data) {
+            if (data.results === 'Array(1)') {
+                console.log(data);
                 var ingredientID = data.results[0].id;
                 console.log(ingredientID);
                 return fetch('https://api.spoonacular.com/food/ingredients/' + ingredientID + '/information?amount=1&apiKey=' + apiKey2 + '').then(function(response) {
@@ -246,18 +255,24 @@ var getIngredients = function(ingredient) {
                         console.log(data);
                         var ingredientAisle = data.aisle;
                         var avgCost = data.estimatedCost.value;
+                        var bodyIAisle = $('#aisle');
+                        var bodyICost = $('#cost');
                         var ingredientAisleEl = document.createElement('span');
                         var avgCostEl = document.createElement('span');
 
                         ingredientAisleEl.textContent = ingredientAisle;
                         avgCostEl.textContent = '$' + avgCost + '';
 
+                        bodyIAisle.appendChild(ingredientAisleEl);
+                        bodyICost.appendChild(avgCostEl);
+
                         console.log(ingredientAisleEl);
                         console.log(avgCostEl);
                     });
                 });
-            } else if (results.offset === 0) {
-                alert('Cannot find the ingredient, please send us a message so we can add it to our grocery list.');
+            } else {
+                $('#noIngFind').addClass('is-active');
+                $('#noIng').text('Please message us so we can add it to our grocery list.')
             }
         });
     });
