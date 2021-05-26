@@ -5,56 +5,45 @@ var apiKey3 = '';
 var apiKey4 = '';
 var drinksArr = [];
 var idsArr = [];
-
 $(document).ready(function() {
     $('#ageModal').addClass('is-active');
 })
-
 // modal handling
 // functions to perform if yes clicked
 $('#yes').click(function() {
     $('.modal').removeClass('is-active');
 });
-
 // ok button on ingredient is clicked
 $('#ok').click(function() {
     $('#ingFind').removeClass('is-active');
 });
-
 //ok button on no ingredient is clicked
 $('#ok').click(function() {
     $('#noIngFind').removeClass('is-active');
 });
-
 // function to perform if no clicked
 $('#no').click(function() {
     console.log('clicked');
     $('#noModal').addClass('is-active');
 })
-
 // get saved cocktails from storage
 var getCocktailsFromStorage = function() {
     drinksArr = [];
     idsArr = [];
     document.querySelector('#savedCocktails').innerHTML = '';
     document.querySelector('#savedCocktails').textContent = 'FAVORITES';
-
     var savedCocktailNames = JSON.parse(localStorage.getItem('names'));
     var savedCocktailIDs = JSON.parse(localStorage.getItem('ids'));
-
     if (savedCocktailNames !== null) {
         drinksArr = savedCocktailNames;
         idsArr = savedCocktailIDs;
-
         // remove duplicate drink names
         var uniqueDrinks = new Set(drinksArr);
         drinksArr = [...uniqueDrinks];
-
         // remove duplicate drink ids
         var uniqueIDs = new Set(idsArr);
         idsArr = [...uniqueIDs];
     };
-
     drinksArr.forEach((drinkName, index) => {
         var drinkID = idsArr[index];
         console.log(drinkID);
@@ -70,37 +59,27 @@ var getCocktailsFromStorage = function() {
         savedForm.appendChild(buttonDiv);
     });
 };
-
 getCocktailsFromStorage();
-
 // if liqour button clicked
 var formSubmitHandler = function(event) {
     event.preventDefault();
-
     //get the liqour input value
     var btnClicked = document.activeElement;
     var liqourName = btnClicked.textContent;
     liqourName = liqourName.trim();
-
     getCocktail(liqourName);
 };
-
 // if saved cocktail button clicked
 var savedFormSubmitHandler = function(event) {
     event.preventDefault();
-
     //get the liqour input value
     var btnClicked = document.activeElement;
     var drinkID = btnClicked.id;
-
     getSavedCocktailInfo(drinkID);
 };
-
 // if ingredient button clicked
 var ingredientFormHandler = function(event) {
     event.preventDefault();
-
-
     // get ingredient input value and convert to no spaces
     var btnClicked = document.activeElement;
     var ingredientName = btnClicked.textContent;
@@ -115,39 +94,29 @@ var ingredientFormHandler = function(event) {
         }
         getIngredients(ingredient);     
 };
-
 // save a cocktail to favorites
 var saveCocktailHandler = function(event) {
     event.preventDefault();
-
     // add cocktail name and id to arrays
     var btnClicked = document.activeElement;
     var drinkName = btnClicked.textContent;
     console.log(drinksArr);
     console.log(idsArr);
-    
     drinksArr.push(drinkName);
     idsArr.push(btnClicked.id);
-
     // store the cocktail name and id
     localStorage.setItem('names', JSON.stringify(drinksArr));
     localStorage.setItem('ids', JSON.stringify(idsArr));
-
     getCocktailsFromStorage();
 };
-
 // listen for liqour button clicked
 document.querySelector('#liqourBtnEl').addEventListener('click', formSubmitHandler);
-
 // listen for ingredient button clicked
 document.querySelector('#storeLoc').addEventListener('click', ingredientFormHandler);
-
 // listen for save button clicked
 document.querySelector('#drinkName').addEventListener('click', saveCocktailHandler);
-
 // listen for saved cocktail button clicked
 document.querySelector('#savedCocktails').addEventListener('click', savedFormSubmitHandler);
-
 // get the cocktail info
 var getCocktail = function(liqourName) {
     fetch('https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=' + liqourName + '&apiid=1').then(function(response) {
@@ -159,23 +128,16 @@ var getCocktail = function(liqourName) {
             var drinkNameEl = document.querySelector('#drinkName');
             var saveBtnEl = document.createElement('button');
             var drinkID = data.drinks[ranDrink].idDrink;  
-
             saveBtnEl.setAttribute('id', '' + drinkID + '');
             saveBtnEl.setAttribute('class', 'saveBtn');
-
             drinkNameEl.innerHTML = '<div>Click the button below to save to favorites</div>';
-
             drinkNameEl.appendChild(saveBtnEl);
-            
             saveBtnEl.innerHTML = data.drinks[ranDrink].strDrink;
-
             drinkImage.innerHTML = '<img id="' + drinkID + '" src="' + drinkImgURL + '/preview"/>';
-            
             getRecipe(drinkID);
         });      
     });
 };
-
 // function to get saved cocktail drinkId
 var getSavedCocktailInfo = function(drinkID) {
     fetch('https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=' + drinkID + '&apiid=1').then(function(response) {
@@ -185,17 +147,12 @@ var getSavedCocktailInfo = function(drinkID) {
             var drinkImage = document.querySelector('#image');
             var drinkNameEl = document.querySelector('#drinkName');
             var drinkID = data.drinks[0].idDrink; 
-            
             drinkNameEl.textContent = data.drinks[0].strDrink;
-
             drinkImage.innerHTML = '<img src="' + drinkImgURL + '/preview">';
-            
             getRecipe(drinkID);
         });      
     });
 };
-
-
 // get the recipe ingredients, measures, and directions
 var getRecipe = function(drinkID) {
     fetch('https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=' + drinkID + '&apiid=1').then(function(response) {
@@ -214,7 +171,6 @@ var getRecipe = function(drinkID) {
             var recipeContainer = document.querySelector('#recipe');
             recipeEl.textContent = " -- " + recipe;
             recipeContainer.appendChild(recipeEl);
-
             var recipeList = function(ingredient, measure) {
                 var ingredientListEl = document.querySelector('#ingredients');
                 var ingredientStoreEl = document.querySelector('#storeLoc');
@@ -224,17 +180,13 @@ var getRecipe = function(drinkID) {
                 var storeIngredient = document.createElement('button');
                 storeIngredient.setAttribute('class', 'ingredient-button');
                 storeIngredient.setAttribute('id', ingredient);
-
                 measureEl.textContent = ' -- ' + measure;
                 ingredientEl.textContent = ingredient;
                 storeIngredient.textContent = ingredient;
-                
-                
                 ingredientStoreEl.appendChild(storeIngredient);
                 ingredientListEl.appendChild(ingredientEl);
                 ingredientEl.appendChild(measureEl);
             };
-
             ingredientArr.forEach((ingredient, index) => {
                 var measure = measuresArr[index];                
                 recipeList(ingredient, measure);               
@@ -242,8 +194,6 @@ var getRecipe = function(drinkID) {
         });
     });
 };
-
-
 // get ingredient info for cocktail
 var getIngredients = function(ingredient) {
     fetch('https://api.spoonacular.com/food/ingredients/search?query=' + ingredient + '&number=1&apiKey=' + apiKey2 + '').then(function(response) {
@@ -261,13 +211,10 @@ var getIngredients = function(ingredient) {
                         var bodyICost = $('#cost');
                         var ingredientAisleEl = document.createElement('span');
                         var avgCostEl = document.createElement('span');
-
                         ingredientAisleEl.textContent = ingredientAisle;
                         avgCostEl.textContent = '$' + avgCost + '';
-
                         bodyIAisle.appendChild(ingredientAisleEl);
                         bodyICost.appendChild(avgCostEl);
-
                         console.log(ingredientAisleEl);
                         console.log(avgCostEl);
                     });
