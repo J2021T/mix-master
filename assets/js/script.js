@@ -6,6 +6,25 @@ var apiKey4 = '';
 var drinksArr = [];
 var idsArr = [];
 
+$(document).ready(function() {
+    $('.modal').addClass('is-active');
+})
+
+// modal handling
+// functions to perform if yes clicked
+$('#yes').click(function() {
+    $('.modal').removeClass('is-active');
+});
+
+// yes button event listener
+
+// function to perform if no clicked
+var ageNoModalHandler = function() {
+    event.preventDefault();
+
+    displayNoModal();
+};
+
 // get saved cocktails from storage
 var getCocktailsFromStorage = function() {
     drinksArr = [];
@@ -38,7 +57,7 @@ var getCocktailsFromStorage = function() {
         var drinkButton = document.createElement('button');
         buttonDiv.setAttribute('class', 'is-full');
         drinkButton.setAttribute('id', drinkID);
-        drinkButton.setAttribute('class', 'columns is-full button is-small');
+        drinkButton.setAttribute('class', 'columns is-full button is-fullwidth');
         drinkButton.textContent = drinkName;
         buttonDiv.appendChild(drinkButton);
         savedForm.appendChild(buttonDiv);
@@ -54,6 +73,7 @@ var formSubmitHandler = function(event) {
     //get the liqour input value
     var btnClicked = document.activeElement;
     var liqourName = btnClicked.textContent;
+    liqourName = liqourName.trim();
 
     getCocktail(liqourName);
 };
@@ -189,6 +209,7 @@ var getRecipe = function(drinkID) {
             var recipeList = function(ingredient, measure) {
                 var ingredientListEl = document.querySelector('#ingredients');
                 var ingredientStoreEl = document.querySelector('#storeLoc');
+                ingredientStoreEl.innerHTML = 'If you are missing any of the ingredients click a button below to find the store aisle and average cost for that item.';
                 var measureEl = document.createElement('span');
                 var ingredientEl = document.createElement('h3');
                 var storeIngredient = document.createElement('button');
@@ -241,4 +262,3 @@ var getIngredients = function(ingredient) {
         });
     });
 };
-
