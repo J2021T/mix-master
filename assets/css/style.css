@@ -7,7 +7,9 @@
 
 
 .hero {
-    background-image: url("../images/hero-background.jpeg");
+
+    background-image: url("../images/hero-background.jpg");
+  
     background-size: contain;
     background-position: top;
     background-attachment: fixed;
@@ -28,7 +30,6 @@
 
 body {
     background-image: url("../images/wood-background.jpg");
-    background-attachment: scroll;
 }
 #drinkName button {
 background-color: #132a85;
