@@ -215,6 +215,9 @@ var getIngredients = function(ingredient) {
                         avgCostEl.textContent = '$' + avgCost + '';
                         bodyIAisle.appendChild(ingredientAisleEl);
                         bodyICost.appendChild(avgCostEl);
+                        
+                        $(#ingFind).addClass(is-active);
+                            
                         console.log(ingredientAisleEl);
                         console.log(avgCostEl);
                     });
