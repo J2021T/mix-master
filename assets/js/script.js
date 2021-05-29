@@ -210,6 +210,8 @@ var getIngredients = function(ingredient) {
                         var shoppingUnit = data.shoppingListUnits[0];
                         var bodyIAisle = document.querySelector('#aisle');
                         var bodyICost = document.querySelector('#cost');
+                        bodyIAisle.textContent = '';
+                        bodyICost.textContent = '';
                         var ingredientAisleEl = document.createTextNode(ingredientAisle);
                         var avgCostEl = document.createTextNode('$' + avgCost + ' per ' + shoppingUnit + '');
                        
