@@ -91,9 +91,11 @@ var ingredientFormHandler = function(event) {
         } else if (ingredient === 'dryvermouth') {
             var ingredient = 'vermouth';
         } else if (ingredient === 'orangejuice') {
-            var ingredient = 'orange+juice'
+            var ingredient = 'orange+juice';
         } else if (ingredient === 'bourbon') {
-            var ingredient = 'bourbon+whisky'
+            var ingredient = 'bourbon+whisky';
+        } else if (ingredient === 'vanillaicecream') {
+            var ingredient = 'ice+cream';
         }
         getIngredients(ingredient);     
 };
