@@ -9,4 +9,4 @@ If the user wants to store that cocktail as a favorite they can click the drink 
 - https://j2021t.github.io/mix-master/
 
 ## Deployed Page Screenshot
-![alt text] (assets/images/deployed-page-screenshot.png "Mix Master Page Screenshot")
+![alt-text] (assets/images/deployed-page-screenshot.png "Mix Master Page Screenshot")
