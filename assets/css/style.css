@@ -7,7 +7,7 @@
 
 
 .hero {
-    background-image: url("../images/hero-background.jpg");
+    background-image: url("../images/hero-background.jpeg");
     background-size: contain;
     background-position: top;
     background-attachment: fixed;
@@ -27,7 +27,7 @@
 }
 
 body {
-    background-image: url("../images/wood-background 2.jpg");
+    background-image: url("../images/wood-background.jpg");
     background-attachment: scroll;
 }
 #drinkName button {
@@ -45,6 +45,7 @@ margin: 10px auto;
 #savedCocktails button {
     display: block;
     width: 100%;
+    margin: 3px;
 }
 
 .liquor-buttons button {
