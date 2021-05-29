@@ -9,24 +9,38 @@
     <title>Mix Master🍹</title>
 </head>
 <body>
-<!-- Popup modal -->
+<!-- Hero Section -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+    <title>Mix Master🍹</title>
+</head>
+<body>
+  <!--Modals-->
+  <!-- Popup modal -->
  <div class="modal" id="ageModal">
   <div class="modal-background"></div>
   <div class="modal-card">
     <header class="modal-card-head">
-      <p class="modal-card-title">Welcome to Mix Master🍹</p>
+      <p class="modal-card-title has-text-centered">Welcome to Mix Master🍹</p>
       <button class="delete" aria-label="close"></button>
     </header>
     <section class="modal-card-body">
-      <p>Are you 21 or Over?</p>
+      <p class="modal-card-title has-text-centered">Are you 21 or Over?</p>
     </section>
     <footer class="modal-card-foot buttons is-centered">
       <button class="button is-success" id="yes">YES</button>
-      <button class="button" id="no">NO</button>
+      <button class="button is-danger" id="no">NO</button>
       </div>
     </footer>
   </div>
-</div>
+</div> 
+<!--Modal if not 21-->
 <div class="modal" id="noModal">
   <div class="modal-background"></div>
   <div class="modal-card">
@@ -35,10 +49,10 @@
       <button class="delete" aria-label="close"></button>
     </header>
     <section class="modal-card-body">
-      <p>You have to be 21+ to access the site. We'll see you when you're 21!</p>
+      <p class="modal-card-title has-text-centered">You have to be 21+ to access the site. We'll see you when you're 21!</p>
     </section>
   </div>
-</div> -->
+</div>
 <!-- modal with ingredients&cost -->
 <div class="modal" id="ingFind">
   <div class="modal-background"></div>
@@ -55,30 +69,32 @@
       <button class="button is-success">OK</button>
     </footer>
   </div>
-</div> -->
+</div>
 <div class="modal" id="noIngFind">
   <div class="modal-background"></div>
   <div class="modal-card">
     <header class="modal-card-head">
-      <p class="modal-card-title has-text-centered">Sorry, couldn’t find Info for your ingredient</p>
+      <p class="modal-card-title has-text-centered">Cannot find the ingredient</p>
       <button class="delete" aria-label="close"></button>
     </header>
-    <body id="noIng">Please message us so we can add it to our grocery list.</body>
+    <section class="modal-card-body">
+      <p id="noIng" class="modal-card-title has-text-centered"></p>
+      
+    </section>
     <footer class="modal-card-foot buttons is-centered">
-      <button class="button is-danger">OK</button>
+      <button class="button is-success" id="ok">OK</button>
     </footer>
   </div>
-</div> -->
-
+</div>
 <!-- Hero Section -->
     <section class="hero is-medium">
         <div class="hero-body">
           <div class="container has-centered-text">
-            <h1 class="text is-default">
+            <h1 class="title is-default has-text-white">
                 Mix Master
             </h1>
             <h2 class="subtitle is-3 has-text-white">
-                The Netflix of Cocktails
+                Netflix for Cocktails
             </h2>
           </div>
         </div>
@@ -93,7 +109,7 @@
   </div>
 
   <div class="content is-large has-text-centered has-text-white">
-    <p class="has-text-white">
+    <p>
       Choose the type of liquor you would like in your drink. 
       Mix Master will find the perfect drink recipe for you to try.
     </p>
@@ -101,7 +117,7 @@
 </section>
 
 <!-- Liquor Buttons -->
-<section class="section liquor-buttons">
+<section class="section">
   <div class="buttons field is-grouped is-grouped-multiline is-grouped-centered">
     <form id="liqourBtnEl">
       <!-- Vodka Button -->
@@ -121,45 +137,44 @@
 
 <!-- drink favorites image and recipe -->
 <section class="section drink-results">
-  <!-- results directions-->
-  <div class="directions content">
+  <div class="content">
     <h1 class="title is-2 has-text-centered has-text-white">
       Here is your Mix Master Drink!
-    </h1>
-    <p class="content is-large has-text-white">
-      If you just found your new favorite mix drink, click the drink name to save the recipe.
-      If that's not quite your jam or you want to choose a back up, click a liquor button again to try something different.
-    </p>
-  </div>  
-  <!-- results container -->
-  <div class="section columns is-multiline field is-grouped">
+  </h1>
+  <p class="content is-large has-text-centered has-text-white">
+    If you just found your new favorite mix drink, click "add to favorites" to save the recipe.
+    If that's not quite your jam or you want to choose a back up, click the liquor button again to try something different.
+  </p>
+</div>
+<!-- Favorites, Drink Image, and Recipe -->
 
-    <!-- favorites list -->
+<div class="section columns is-multiline field is-grouped">
+  <!-- favorites list -->
+    
     <div class="container control column is-one-fifth is-pulled-left is-narrow">
-      <div class="field is-grouped-multiline">
-        <div class="control column is-multiline buttons block is-grouped-centered"><form id="savedCocktails">Favorite Cocktails</form></div>
+      <div class="field is-grouped-multiline has-text-white has-text-centered">
+      <div class="control column is-multiline buttons block is-grouped-centered"><form id="savedCocktails">Favorite Cocktails</form></div>
       </div>
-    </div>
+      </div>
 
   <!-- Drink Info Box -->      
   <div class="container box column is-two-thirds has-text-centered is-grouped-centered control"> 
-    <!-- Drink Name / Save to favorites -->
+    <!-- favorites button -->
     <form id="drinkName"></form>
-    <!-- Drink Image -->
-    <figure class="column is-half is-offset-one-quarter image" id="image"></figure>
-    <!-- Indreient list -->
-    <div class="column">
-      <div class="content is-medium has-text-centered"> Ingredients</div>
-      <div class="block" id="ingredients"></div>
-    </div>
-    <!-- cocktail recipe -->
-    <div class="column">
-      <div class="content is-medium block has-text-centered"> Recipe</div>
-      <div id="recipe"></div>
-    <!-- Grocery store info-->
-    <Div>If you are missing any of the ingredients click a button below to find the store aisle and average cost for that item.</Div>
-      <form id="storeLoc"></form>
-  </div>
+    <!-- Drink Image-->
+<figure class="column is-half is-offset-one-quarter image" id="image"></figure>
+
+<div class="column">
+  <div class="content is-medium has-text-centered"> Ingredients</div>
+  <div class="block" id="ingredients"></div>
+</div>
+
+<div class="column">
+  <div class="content is-medium block has-text-centered"> Recipe</div>
+  <div id="recipe"></div>
+  <Div>If you are missing any of the ingredients click a button below to find the store aisle and average cost for that item.</Div>
+  <form id="storeLoc"></form>
+</div>
 
 
 
