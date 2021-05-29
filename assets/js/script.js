@@ -5,25 +5,26 @@ var apiKey3 = '';
 var apiKey4 = '';
 var drinksArr = [];
 var idsArr = [];
-$(document).ready(function() {
-    $('#ageModal').addClass('is-active');
-})
+
 // modal handling
 // functions to perform if yes clicked
 $('#yes').click(function() {
+    event.preventDefault();
     $('.modal').removeClass('is-active');
 });
 // ok button on ingredient is clicked
 $('#ok').click(function() {
+    event.preventDefault();
     $('#ingFind').removeClass('is-active');
 });
 //ok button on no ingredient is clicked
 $('#ok').click(function() {
+    event.preventDefault();
     $('#noIngFind').removeClass('is-active');
 });
 // function to perform if no clicked
 $('#no').click(function() {
-    console.log('clicked');
+    event.preventDefault();
     $('#noModal').addClass('is-active');
 })
 // get saved cocktails from storage
@@ -46,8 +47,6 @@ var getCocktailsFromStorage = function() {
     };
     drinksArr.forEach((drinkName, index) => {
         var drinkID = idsArr[index];
-        console.log(drinkID);
-        console.log(drinkName);
         var savedForm = document.querySelector('#savedCocktails');
         var buttonDiv = document.createElement('div')
         var drinkButton = document.createElement('button');
@@ -60,6 +59,7 @@ var getCocktailsFromStorage = function() {
     });
 };
 getCocktailsFromStorage();
+
 // if liqour button clicked
 var formSubmitHandler = function(event) {
     event.preventDefault();
@@ -69,6 +69,7 @@ var formSubmitHandler = function(event) {
     liqourName = liqourName.trim();
     getCocktail(liqourName);
 };
+
 // if saved cocktail button clicked
 var savedFormSubmitHandler = function(event) {
     event.preventDefault();
@@ -77,6 +78,7 @@ var savedFormSubmitHandler = function(event) {
     var drinkID = btnClicked.id;
     getSavedCocktailInfo(drinkID);
 };
+
 // if ingredient button clicked
 var ingredientFormHandler = function(event) {
     event.preventDefault();
@@ -84,13 +86,14 @@ var ingredientFormHandler = function(event) {
     var btnClicked = document.activeElement;
     var ingredientName = btnClicked.textContent;
     var ingredient = ingredientName.toLowerCase().replace(/\s+/g,'').trim();
-    console.log(ingredient);
         if (ingredient === 'tabascosauce') {
             var ingredient = 'tabasco';
         } else if (ingredient === 'dryvermouth') {
             var ingredient = 'vermouth';
         } else if (ingredient === 'orangejuice') {
             var ingredient = 'orange+juice'
+        } else if (ingredient === 'bourbon') {
+            var ingredient = 'bourbon+whisky'
         }
         getIngredients(ingredient);     
 };
@@ -100,8 +103,6 @@ var saveCocktailHandler = function(event) {
     // add cocktail name and id to arrays
     var btnClicked = document.activeElement;
     var drinkName = btnClicked.textContent;
-    console.log(drinksArr);
-    console.log(idsArr);
     drinksArr.push(drinkName);
     idsArr.push(btnClicked.id);
     // store the cocktail name and id
@@ -123,7 +124,6 @@ var getCocktail = function(liqourName) {
         response.json().then(function(data) {
             var ranDrink = Math.floor(Math.random() * data.drinks.length);
             var drinkImgURL = data.drinks[ranDrink].strDrinkThumb;
-            console.log(drinkImgURL);
             var drinkImage = document.querySelector('#image');
             var drinkNameEl = document.querySelector('#drinkName');
             var saveBtnEl = document.createElement('button');
@@ -142,7 +142,6 @@ var getCocktail = function(liqourName) {
 var getSavedCocktailInfo = function(drinkID) {
     fetch('https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=' + drinkID + '&apiid=1').then(function(response) {
         response.json().then(function(data) {
-            console.log(data);
             var drinkImgURL = data.drinks[0].strDrinkThumb;
             var drinkImage = document.querySelector('#image');
             var drinkNameEl = document.querySelector('#drinkName');
@@ -157,7 +156,6 @@ var getSavedCocktailInfo = function(drinkID) {
 var getRecipe = function(drinkID) {
     fetch('https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=' + drinkID + '&apiid=1').then(function(response) {
         response.json().then(function(data) {
-            console.log(data);
             var ingredients = [data.drinks[0].strIngredient1, data.drinks[0].strIngredient2, data.drinks[0].strIngredient3, data.drinks[0].strIngredient4, data.drinks[0].strIngredient5, data.drinks[0].strIngredient6, data.drinks[0].strIngredient7, data.drinks[0].strIngredient8, data.drinks[0].strIngredient9, data.drinks[0].strIngredient10, data.drinks[0].strIngredient11, data.drinks[0].strIngredient12, data.drinks[0].strIngredient13, data.drinks[0].strIngredient14, data.drinks[0].strIngredient15]
             var ingredientArr = ingredients.filter(function(value, index, arr) {
                 return value !== null;
@@ -171,10 +169,12 @@ var getRecipe = function(drinkID) {
             var recipeContainer = document.querySelector('#recipe');
             recipeEl.textContent = " -- " + recipe;
             recipeContainer.appendChild(recipeEl);
+            var ingredientStoreEl = document.querySelector('#storeLoc');
+            ingredientStoreEl.innerHTML = '';
+            
             var recipeList = function(ingredient, measure) {
                 var ingredientListEl = document.querySelector('#ingredients');
-                var ingredientStoreEl = document.querySelector('#storeLoc');
-                // ingredientStoreEl.innerHTML = 'If you are missing any of the ingredients click a button below to find the store aisle and average cost for that item.';
+                
                 var measureEl = document.createElement('span');
                 var ingredientEl = document.createElement('h3');
                 var storeIngredient = document.createElement('button');
@@ -198,28 +198,25 @@ var getRecipe = function(drinkID) {
 var getIngredients = function(ingredient) {
     fetch('https://api.spoonacular.com/food/ingredients/search?query=' + ingredient + '&number=1&apiKey=' + apiKey2 + '').then(function(response) {
         response.json().then(function(data) {
-            if (data.results === 'Array(1)') {
+            console.log(data);
+            if (data.results[0]) {
                 console.log(data);
                 var ingredientID = data.results[0].id;
-                console.log(ingredientID);
                 return fetch('https://api.spoonacular.com/food/ingredients/' + ingredientID + '/information?amount=1&apiKey=' + apiKey2 + '').then(function(response) {
-                    response.json().then(function(data) {
-                        console.log(data);
+                        response.json().then(function(data) {
+                            console.log(data);
                         var ingredientAisle = data.aisle;
                         var avgCost = data.estimatedCost.value;
-                        var bodyIAisle = $('#aisle');
-                        var bodyICost = $('#cost');
-                        var ingredientAisleEl = document.createElement('span');
-                        var avgCostEl = document.createElement('span');
-                        ingredientAisleEl.textContent = ingredientAisle;
-                        avgCostEl.textContent = '$' + avgCost + '';
+                        var shoppingUnit = data.shoppingListUnits[0];
+                        var bodyIAisle = document.querySelector('#aisle');
+                        var bodyICost = document.querySelector('#cost');
+                        var ingredientAisleEl = document.createTextNode(ingredientAisle);
+                        var avgCostEl = document.createTextNode('$' + avgCost + ' per ' + shoppingUnit + '');
+                       
                         bodyIAisle.appendChild(ingredientAisleEl);
                         bodyICost.appendChild(avgCostEl);
                         
-                        $(#ingFind).addClass(is-active);
-                            
-                        console.log(ingredientAisleEl);
-                        console.log(avgCostEl);
+                        $('#ingFind').addClass('is-active');
                     });
                 });
             } else {
