@@ -18,6 +18,11 @@ $('#ok').click(function() {
     $('#ingFind').removeClass('is-active');
 });
 //ok button on no ingredient is clicked
+$('#cancel').click(function() {
+    event.preventDefault();
+    $('#noIngFind').removeClass('is-active');
+});
+// x button on no ingredient is clicked
 $('#noIng').click(function() {
     event.preventDefault();
     $('#noIngFind').removeClass('is-active');
