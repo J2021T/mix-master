@@ -18,7 +18,7 @@ $('#ok').click(function() {
     $('#ingFind').removeClass('is-active');
 });
 //ok button on no ingredient is clicked
-$('#ok').click(function() {
+$('#noIng').click(function() {
     event.preventDefault();
     $('#noIngFind').removeClass('is-active');
 });
@@ -173,6 +173,8 @@ var getRecipe = function(drinkID) {
             recipeContainer.appendChild(recipeEl);
             var ingredientStoreEl = document.querySelector('#storeLoc');
             ingredientStoreEl.innerHTML = '';
+            var ingredientsContainer = document.querySelector('#ingredients');
+            ingredientsContainer.innerHTML = '';
             
             var recipeList = function(ingredient, measure) {
                 var ingredientListEl = document.querySelector('#ingredients');
