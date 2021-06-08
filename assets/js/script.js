@@ -227,7 +227,7 @@ var getIngredients = function(ingredient) {
                 });
             } else {
                 $('#noIngFind').addClass('is-active');
-                $('#noIng').text('Please message us so we can add it to our grocery list.')
+                $('#noIngre').text('Please message us so we can add it to our grocery list.')
             }
         });
     });
