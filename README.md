@@ -37,7 +37,7 @@
   * GitHub: [kellydhunter1](https://github.com/kellydhunter1)
   
   * Benson Muchemi
-  * GitHub: [bensonmuchemi15](https://github.com/bensonmuchemi15)
+  * GitHub: [benmuchemi15](https://github.com/benmuchemi15)
   
   
   ## Contributing
