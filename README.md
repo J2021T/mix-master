@@ -1,20 +1,62 @@
-# mix-master
 
-## Description
-- Collaborated by Kelly Hunter, Benson Muchemi, and Jordan Turcott
-- Mix-Master is a web application to help a user find a cocktail based of their choice of liqour.  The user clicks one of the types of liqour buttons and a fetch call to the CocktailDB api produces an id for that type of liqour.  Using that id another fetch call to CocktailDB api and a math.random function produces a random cocktail for the user.  Using that data an image of the cocktail along with recipe information is displayed on the page.
-The user if they are missing any ingredients can then click on a button representing that ingredient to find out store aisle location and average cost.  This is done by doing a fetch call to the Spoonacular api based off ingredient name to find an id.  Another fetch call is made to Spoonacular with that id to produce the aisle and cost info.
-If the user wants to store that cocktail as a favorite they can click the drink name button and it will be stored in the 'Favorites' column.
+  # Mix-Master
+  * ![MIT License](https://img.shields.io/badge/license-MIT-blue)
 
-## Languages Used
-- Javascript
-- JQuery
-- Bulma
-- HTML
-- CSS
+  ## Description
+  Mix-Master is a web application to generate random cocktails and help you find the ingredients in the store.  We know everyone has been in the spot where they have the alcohol, but no idea what kind of cocktail to make. So we created this application using an API from CocktailDB to produce a random cocktail using the type of liqour the user clicked.  Then the user is presented with the recipe and ingredients.  If the user needs to find the ingredients in the store they can click on the ingredient and find the aisle and average cost.  This is done with the Spoonacular API, which is still working out some ingredient details.  If the user really likes a recipe they can save it to their favorites section by clicking the drink name button.
 
-## Deployed Page Link
-- https://j2021t.github.io/mix-master/
+  ## Table of Contents
+  * [Usage](#usage)
+  * [Deployed-Application-Link](#deployed-application-link)
+  * [Deployed-Application-Screenshot](#deployed-application-screenshot)
+  * [Credits](#credits)
+  * [Contributing](#contributing)
+  * [Tests](#tests)
+  * [Questions](#questions)
+  * [License](#license)
 
-## Deployed Page Screenshot
-![Alt-text](assets/images/deployed-page-screenshot.png "Mix Master Page Screenshot")
+  
+  ## Usage
+  Simply follow the link to the deployed application and click the type of liqour you want for your cocktail.  Then make that cocktail and enjoy!
+  
+  
+  ## Deployed-Application-Link
+  
+  https://j2021t.github.io/mix-master/
+  
+  
+  ## Deployed-Application-Screenshot
+  
+  ![Alt-text](assets/images/*REMOVE AND ADD YOUR FILE NAME*.png "PLACE YOUR ALT TEXT HERE")
+  
+  
+  ## Credits
+  
+    
+  * Kelly Hunter
+  * GitHub: [kellydhunter1](https://github.com/kellydhunter1)
+  
+  * Benson Muchemi
+  * GitHub: [bensonmuchemi15](https://github.com/bensonmuchemi15)
+  
+  
+  ## Contributing
+  Reach out to Kelly, Benson, or me on GitHub.  We are always open to ideas and improvements.
+  
+  
+  ## Tests
+  Follow the link and get yourself a cocktail.
+  
+  
+  ## Questions
+  GitHub: [J2021T](https://github.com/J2021T)
+
+  EMAIL: [jordan.turcott@gmail.com](mailto:jordan.turcott@gmail.com)
+  
+  
+  ## License
+  This project is covered under the [MIT](../assets/license-files/MIT.txt) license.
+
+ ![MIT License](https://img.shields.io/badge/license-MIT-blue)
+  
+  
