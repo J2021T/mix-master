@@ -27,7 +27,7 @@
   
   ## Deployed-Application-Screenshot
   
-  ![Alt-text](assets/images/*REMOVE AND ADD YOUR FILE NAME*.png "PLACE YOUR ALT TEXT HERE")
+  ![Alt-text](assets/images/deployed-page-screenshot.png "Screenshot of Mix-Master deployed application")
   
   
   ## Credits
