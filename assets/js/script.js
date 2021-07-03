@@ -174,6 +174,7 @@ var getRecipe = function(drinkID) {
             var recipe = data.drinks[0].strInstructions;
             var recipeEl = document.createElement('span');
             var recipeContainer = document.querySelector('#recipe');
+            recipeContainer.textContent = '';
             recipeEl.textContent = " -- " + recipe;
             recipeContainer.appendChild(recipeEl);
             var ingredientStoreEl = document.querySelector('#storeLoc');
